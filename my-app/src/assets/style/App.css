@@ -1,0 +1,10 @@
+.movie-list {
+  text-align: center;
+	margin: 1rem;
+	padding: 0;
+}
+
+.movie-detail{
+  padding: 1rem;
+  border: solid 1px black;
+}
