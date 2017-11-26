@@ -4,7 +4,22 @@
 	padding: 0;
 }
 
-.movie-detail{
+.movie-box {
+  padding: 1rem;
+}
+
+.movie-detail {
   padding: 1rem;
   border: solid 1px black;
+  max-height: 40rem;
+  overflow-y: hide;
+}
+
+.movie-img{
+  display: block;
+  margin: 0 auto;
+}
+
+.movie-info{
+  padding: 1rem;
 }

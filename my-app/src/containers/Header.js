@@ -1,15 +1,41 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import {Button, Navbar, FormGroup, FormControl } from 'react-bootstrap'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import {filterMovieData} from '../actions/Home'
 
 class Header extends Component {
+  constructor(props){
+    super(props)
+    this.handleChange = this.handleChange.bind(this)
+    this.submit = this.submit.bind(this)
+    this.resetHome = this.resetHome.bind(this)
+    this.state = {
+      search_key: ''
+    }
+  }
+
+  handleChange(e) {
+    this.setState({ search_key: e.target.value })
+  }
+
+  submit() {
+    this.props.filterMovieData(this.state.search_key)
+  }
+
+  resetHome() {
+    this.setState({ search_key: '' }) 
+    this.props.filterMovieData(this.state.search_key)
+  }
+
   render() {
     return (
       <div className="header">
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to="/">Home</Link>
+              <Link to="/" onClick={this.resetHome}>Home</Link>
             </Navbar.Brand>
             <Navbar.Brand>
               <Link to="/about-us">About</Link>
@@ -19,10 +45,15 @@ class Header extends Component {
           <Navbar.Collapse>
             <Navbar.Form pullLeft>
               <FormGroup>
-                <FormControl type="text" placeholder="Search" />
+                <FormControl 
+                  type="text" 
+                  placeholder="Search" 
+                  value={this.state.search_key}
+                  onChange={this.handleChange}
+                />
               </FormGroup>
               {' '}
-              <Button type="submit">Submit</Button>
+              <Button type="submit" onClick={this.submit}>Submit</Button>
             </Navbar.Form>
           </Navbar.Collapse>
         </Navbar>
@@ -31,4 +62,8 @@ class Header extends Component {
   }
 }
 
-export default Header
+const mapDispatchToProps = dispatch => bindActionCreators(
+  {filterMovieData}, dispatch
+)
+
+export default connect(null, mapDispatchToProps)(Header)
