@@ -9,12 +9,12 @@ class MovieDetail extends Component {
   render() {
     let movieInfo = this.props.data;
     return (
-      <Col xs={12} md={4} className="movie-box">
+      <Col xs={12} sm={6} md={4} className="movie-box">
         <a href={movieInfo.homepage} target="_blank">
           <div className="movie-detail">
-            <Image className="movie-img" src="https://i.pinimg.com/736x/cb/f4/fb/cbf4fb9e6efe74aea6fcf079eaddd339--sirius-black-rupert-grint.jpg" responsive />
+            <Image className="movie-img" src="http://www.storypick.com/wp-content/uploads/2016/08/xmenapocalypseimax.jpg" responsive />
             <div className="movie-info">
-              <Row>Movie Title: {movieInfo.title}</Row>
+              <Row className="movie-title">{movieInfo.title}</Row>
               <Row>Release: {movieInfo.release_date}</Row>
               <Row>Vote: {movieInfo.vote_count}, Rating: {movieInfo.vote_average}</Row>
             </div>

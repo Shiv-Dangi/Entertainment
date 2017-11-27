@@ -12,13 +12,21 @@ export function filterMovieData(search_key) {
   if (search_key !== '') {
     search_key = search_key.toLowerCase()
     movieData.forEach( function (movie) {
-      let movieKeywords = JSON.parse(movie.keywords)
-      movieKeywords.forEach(function (keyword) {
-        keyword = (keyword.name).toLowerCase()
-        if(keyword.indexOf(search_key) !== -1){
+      let movieTitle = movie.title
+      if (typeof movieTitle === 'string') {
+        movieTitle = movieTitle.toLowerCase()
+        if (movieTitle.indexOf(search_key) !== -1) {
           result.push(movie)
-        } 
-      })
+        }
+      } else {
+        let movieKeywords = JSON.parse(movie.keywords)
+        movieKeywords.forEach(function (keyword) {
+          keyword = (keyword.name).toLowerCase()
+          if(keyword.indexOf(search_key) !== -1){
+            result.push(movie)
+          } 
+        })
+      }
     })
   } else {
     result = movieData.slice(0,12)

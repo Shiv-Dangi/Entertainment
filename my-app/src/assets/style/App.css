@@ -5,21 +5,27 @@
 }
 
 .movie-box {
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .movie-detail {
-  padding: 1rem;
   border: solid 1px black;
-  max-height: 40rem;
-  overflow-y: hide;
+  max-height: 50rem;
+  overflow-y: auto;
 }
 
-.movie-img{
+.movie-img {
   display: block;
   margin: 0 auto;
 }
 
-.movie-info{
+.movie-info {
+  background: black;
+  color: white;
   padding: 1rem;
+}
+
+.movie-title {
+  font-weight: bold;
+  font-size: 1.5rem;
 }
