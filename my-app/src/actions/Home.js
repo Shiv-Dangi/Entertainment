@@ -29,10 +29,7 @@ export function filterMovieData(search_key) {
       }
     })
   } else {
-    result = movieData.slice(0,12)
-  }
-  if (result.length > 20){
-    result = result.slice(0, 20)
+    result = movieData.slice(0,24)
   }
   return {
     type: 'UPDATE_RESULT',
