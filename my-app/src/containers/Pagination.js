@@ -105,7 +105,7 @@ class Pagination extends React.Component {
         var endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
  
         // create an array of pages to ng-repeat in the pager control
-        var pages = this.range(startPage, endPage + 1);
+        var pages = this.range(startPage, endPage);
  
         // return object with all pager properties required by the view
         return {

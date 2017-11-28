@@ -23,6 +23,8 @@
   background-color: #444;
   color: white;
   padding: 1rem;
+  height: 9rem;
+  overflow-y: auto;
 }
 
 .movie-title {
