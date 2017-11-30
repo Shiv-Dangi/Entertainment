@@ -33,6 +33,6 @@ export function filterMovieData(search_key) {
   }
   return {
     type: 'UPDATE_RESULT',
-    data: result
+    data: {result: result, searchKey: search_key}
   }
 }

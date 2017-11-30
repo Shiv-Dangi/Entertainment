@@ -13,7 +13,8 @@ class Home extends Component {
       result: [],
       pageOfItems: []
     };
-    this.onChangePage = this.onChangePage.bind(this);
+    this.onChangePage = this.onChangePage.bind(this)
+    this.showResultText = this.showResultText.bind(this)
   }
 
   onChangePage(pageOfItems) {
@@ -33,14 +34,27 @@ class Home extends Component {
     this.props.getMovieData()
   }
 
+  showResultText() {
+    let searchKey = this.props.movieData.searchKey
+    if(searchKey !== '') {
+      return (<div>Showing results for <span>{searchKey}</span></div>)
+    } else {
+      return ('Popular Movies')
+    }
+  }
+
   render() {
     let pageOfItems = this.state.pageOfItems,
-    result = this.state.result
+    result = this.state.result,
+    searchKey = this.props.movieData.searchKey
     return (
       <div className="home-page row">
         <Grid>
+          {typeof searchKey !== 'undefined' &&
+              <Row className="search-breadcrumbs">{this.showResultText()}</Row>
+          }
           <Row className="movie-list">
-            { pageOfItems.length ?
+            { result.length ?
               pageOfItems.map((movieInfo, index) =>
                 <MovieDetail key={index} data={movieInfo}/>
               )
