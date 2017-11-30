@@ -22,6 +22,7 @@ class Header extends Component {
 
   submit() {
     this.props.filterMovieData(this.state.search_key)
+    // e.preventDefault()
   }
 
   resetHome() {
@@ -43,7 +44,7 @@ class Header extends Component {
             <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
-            <Navbar.Form pullLeft>
+            <Navbar.Form onSubmit={this.submit()} pullLeft>
               <FormGroup>
                 <FormControl 
                   type="text" 
@@ -52,8 +53,7 @@ class Header extends Component {
                   onChange={this.handleChange}
                 />
               </FormGroup>
-              {' '}
-              <Button type="submit" onClick={this.submit}>Submit</Button>
+              {/*<Button type="submit" onClick={this.submit}>Submit</Button>*/}
             </Navbar.Form>
           </Navbar.Collapse>
         </Navbar>
