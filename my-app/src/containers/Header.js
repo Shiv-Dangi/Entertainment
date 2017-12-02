@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import {Button, Navbar, FormGroup, FormControl } from 'react-bootstrap'
+import {Navbar, FormGroup, FormControl } from 'react-bootstrap'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import {filterMovieData} from '../actions/Home'

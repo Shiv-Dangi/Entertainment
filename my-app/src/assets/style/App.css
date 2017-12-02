@@ -1,3 +1,17 @@
+.search-breadcrumbs {
+  font-size: 1.8rem;
+  font-family: monospace, serif;
+  font-weight: 500;
+  margin: 1rem;
+  padding: 0 2rem;
+}
+
+.search-breadcrumbs span {
+  text-decoration: underline;
+  color: blue;
+  font-style: italic;
+}
+
 .movie-list {
   text-align: center;
 	margin: 1rem;
@@ -9,38 +23,78 @@
 }
 
 .movie-detail {
-  border: none;
-  opacity: 0.9;
+  height: 30rem;
+  position: relative;
+  margin: auto;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
   -moz-box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
-  max-height: 50rem;
-  overflow-y: auto;
+  -o-transition: all .5s;
+  -ms-transition: all .5s;
+  -moz-transition: all .5s;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 
-.movie-detail:hover {
-  opacity: 1;
-  -moz-box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
+.front {
+  z-index: 2;
 }
+
+.back {
+  text-align: left;
+  padding: 2rem;
+  z-index: 1;
+  -webkit-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);  
+  transform: rotateY(-180deg);
+}
+
+.movie-detail:hover .front {
+  z-index: 1;
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.movie-detail:hover .back {
+  z-index: 2;   
+  -webkit-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+/* front card inside style */
 
 .movie-img {
   display: block;
   margin: 0 auto;
   border-bottom: 3px solid #fe7900;
+  height: 70%;
 }
 
 .movie-info {
-  /*background-color: #444;*/
-  /*color: white;*/
   text-align: left;
   padding: 1rem;
-  height: 9rem;
+  height: 30%;
   overflow-y: auto;
 }
 
-.movie-info .row {
+.movie-info .row, .back .row {
   margin: 0;
 }
 
@@ -55,16 +109,20 @@
   color: #999;
 }
 
-.search-breadcrumbs {
+/* back card inside style */
+.back-title {
   font-size: 1.8rem;
-  font-family: monospace, serif;
-  font-weight: 500;
-  margin: 1rem;
-  padding: 0 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid #fe7900;
 }
 
-.search-breadcrumbs span {
-  text-decoration: underline;
-  color: blue;
-  font-style: italic;
+.detail-type {
+  color: #999; 
+}
+
+.link-btn {
+  position: absolute;
+  left: 70%;
+  bottom: 5%;
 }
