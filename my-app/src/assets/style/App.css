@@ -85,6 +85,7 @@
   margin: 0 auto;
   border-bottom: 3px solid #fe7900;
   height: 70%;
+  width: 100%;
 }
 
 .movie-info {
@@ -102,7 +103,7 @@
   color: black;
   text-decoration: none;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 
 .release_date {
